@@ -1,0 +1,4 @@
+[submodule "snmp-mibs-downloader"]
+	path = snmp-mibs-downloader
+	url = https://anonscm.debian.org/git/collab-maint/snmp-mibs-downloader.git
+	ignore=all

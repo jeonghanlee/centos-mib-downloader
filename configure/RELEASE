@@ -1,0 +1,5 @@
+#
+DESTDIR?=
+REPO_BASE=/etc/snmp-mibs-downloader
+REPO_DOWNLOADER_BASE=/usr/share/snmp/mibs-downloader
+REPO_SNMP_MIBS_DIRS=/usr/share/snmp/mibs/

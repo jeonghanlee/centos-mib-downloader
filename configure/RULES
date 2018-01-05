@@ -1,0 +1,6 @@
+
+include $(TOP)/configure/DEFINES_FT
+
+include $(TOP)/configure/RULES_REPO
+include $(TOP)/configure/RULES_VARS
+

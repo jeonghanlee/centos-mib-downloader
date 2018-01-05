@@ -1,0 +1,57 @@
+# -*- mode: Makefile;-*-
+.PHONY: help default install conf
+
+default: help
+
+
+# # help is defined in 
+# # https://gist.github.com/rcmachado/af3db315e31383502660
+help:
+	$(info --------------------------------------- )	
+	$(info Available targets)
+	$(info --------------------------------------- )
+	$(QUIET) awk '/^[a-zA-Z\-\_0-9]+:/ {            \
+	  nb = sub( /^## /, "", helpMsg );              \
+	  if(nb == 0) {                                 \
+	    helpMsg = $$0;                              \
+	    nb = sub( /^[^:]*:.* ## /, "", helpMsg );   \
+	  }                                             \
+	  if (nb)                                       \
+	    print  $$1 "\t" helpMsg;                    \
+	}                                               \
+	{ helpMsg = $$0 }'                              \
+	$(MAKEFILE_LIST) | column -ts:	
+
+
+
+## Install 
+install: conf
+	$(QUIET) $(SUDOBASH) '$(REPO_MAKE_CMDS) install'
+
+
+## Clean : $(E3_MODULE_NAME)
+clean: conf
+	$(QUIET) $(SUDOBASH) '$(REPO_MAKE_CMDS) clean'
+
+
+## Copy $(REPO_MAKEFILE) into $(REPO_SRC_PATH)
+conf: 
+	$(QUIET) install -m 644 $(TOP)/$(REPO_MAKEFILE)  $(REPO_SRC_PATH)/
+	$(QUIET) install -m 644 $(TOP)/$(SMISTRIP)       $(REPO_SRC_PATH)/
+
+
+
+.PHONY: init git-submodule-sync $(REPO_SRC_PATH)  checkout
+
+## Initialize : $(REPO_SRC_PATH) 
+init: git-submodule-sync $(REPO_SRC_PATH)  checkout 
+
+git-submodule-sync:
+	$(QUIET) git submodule sync
+
+
+$(REPO_SRC_PATH): 
+	$(QUIET) $(git_update)
+
+checkout: 
+	cd $(REPO_SRC_PATH) && git checkout $(REPO_TAG)

@@ -1,0 +1,16 @@
+ENV_VARIABLES:=$(sort $(filter-out $(VARS_EXCLUDES) VARS_EXCLUDES,$(.VARIABLES)))
+
+.PHONY : vars env header
+
+vars: header
+	$(foreach v, $(ENV_VARIABLES), $(info $(v) = $($(v)))) @#noop
+	 
+env: vars
+
+header:
+	$(QUIET)echo ""
+	$(QUIET)echo "------------------------------------------------------------"
+	$(QUIET)echo ">>>>     Current Envrionment Variables                  <<<<"
+	$(QUIET)echo "------------------------------------------------------------"
+	$(QUIET)echo ""
+

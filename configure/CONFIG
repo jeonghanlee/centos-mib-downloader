@@ -1,0 +1,21 @@
+VARS_EXCLUDES := $(.VARIABLES)
+
+include $(TOP)/configure/RELEASE
+
+include $(TOP)/configure/CONFIG_REPO
+
+include $(TOP)/configure/CONFIG_REPO_MAKEFILE
+
+
+# IF EPICS_BASE is not WRITABLE, SUDO and SUDOBASH should be used 
+# SUDO_INFO 1 : SUDO is needed (NOT writable)
+# SUDO_INFO 0 : SUDO is not needed
+SUDO_INFO := $(shell test -w $(REPO_BASE) 1>&2 2> /dev/null; echo $$?)
+
+ifeq "$(SUDO_INFO)" "1"
+SUDO := sudo
+SUDOBASH = $(SUDO)
+SUDOBASH += -E
+SUDOBASH += bash -c
+endif    
+

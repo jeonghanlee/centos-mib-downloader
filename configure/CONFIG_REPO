@@ -1,0 +1,10 @@
+REPO_NAME:=snmp-mibs-downloader
+REPO_TAG:=1.1+nmu1
+
+
+REPO_SRC_PATH:=$(REPO_NAME)
+REPO_MAKEFILE:=$(REPO_NAME).Makefile
+
+
+
+SMISTRIP:=smistrip
