@@ -2,6 +2,27 @@
 
 This is the installation environment for snmp-mibs-downloader for CentOS 7. Since CentOS has the different directory, and packages, and so on, it is difficult to build snmp related EPICS IOC on that platform.
 
+## Build commands
+
+```
+make init
+make vars
+make install
+make clean
+```
+
+## Run
+
+```
+sudo download-mibs
+```
+
+Please check
+
+* /var/lib/snmp/mibs
+* /usr/share/snmp/mibs/{iana,ietf}
+
+
 ## Notice
 
 It uses Debian smistrip file instead of CentOS package one, because smistrip is different from Debian in CentOS, libsmi as follows:
