@@ -1,5 +1,5 @@
 # -*- mode: Makefile;-*-
-.PHONY: help default install conf
+.PHONY: help default install clean conf 
 
 default: help
 
@@ -24,12 +24,12 @@ help:
 
 
 
-## Install 
+## Install :
 install: conf
 	$(QUIET) $(SUDOBASH) '$(REPO_MAKE_CMDS) install'
 
 
-## Clean : $(E3_MODULE_NAME)
+## Clean :
 clean: conf
 	$(QUIET) $(SUDOBASH) '$(REPO_MAKE_CMDS) clean'
 
@@ -43,7 +43,7 @@ conf:
 
 .PHONY: init git-submodule-sync $(REPO_SRC_PATH)  checkout
 
-## Initialize : $(REPO_SRC_PATH) 
+## Initialize : 
 init: git-submodule-sync $(REPO_SRC_PATH)  checkout 
 
 git-submodule-sync:

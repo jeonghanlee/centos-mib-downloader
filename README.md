@@ -1,6 +1,10 @@
 # centos-mib-downloader
 
-This is the installation environment for snmp-mibs-downloader for CentOS 7. Since CentOS has the different directory, and packages, and so on, it is difficult to build snmp related EPICS IOC on that platform.
+For CentOS doesn't have the snmp-mibs-downloader, which exists in Debian environment. I would like to have several mib files in CentOS system without maintaining them by myself while I am working on the EPICS snmp support seriously. 
+
+It uses the proposed and similar ESS EPICS Environment building system also. 
+
+
 
 ## Build commands
 
