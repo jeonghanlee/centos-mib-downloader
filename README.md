@@ -1,6 +1,6 @@
 # centos-mib-downloader
 
-For CentOS doesn't have the snmp-mibs-downloader, which exists in Debian environment. I would like to have several mib files in CentOS system without maintaining them by myself while I am working on the EPICS snmp support seriously. 
+For CentOS doesn't have the snmp-mibs-downloader, which exists in Debian environment [1]. I would like to have several mib files in CentOS system without maintaining them by myself while I am working on the EPICS snmp support seriously. 
 
 It uses the proposed and similar ESS EPICS Environment building system also. 
 
@@ -66,3 +66,6 @@ Usage: smistrip [-Vvhna] [-i dir] [-d dir] [-s suffix] [-m modules] file1 [file2
            use : as a separator
 file1 ...  input files to parse (RFCs, I-Ds, ...)
 ```
+
+## Reference
+[1] https://salsa.debian.org/debian/snmp-mibs-downloader
