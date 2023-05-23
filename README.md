@@ -1,4 +1,6 @@
-# centos-mib-downloader
+# ~~centos-mib-downloader [obsolete]~~
+
+Please check <https://github.com/jeonghanlee/snmp-mibs-downloader-env>
 
 For CentOS doesn't have the snmp-mibs-downloader, which exists in Debian environment [1]. I would like to have several mib files in CentOS system without maintaining them by myself while I am working on the EPICS snmp support seriously. 
 
